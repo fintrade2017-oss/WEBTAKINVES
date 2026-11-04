@@ -1,0 +1,972 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKYMA INVESTMENT PIONEER</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8941F;
+            --black: #121212;
+            --light-black: #1E1E1E;
+            --gray: #333333;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: var(--black);
+            border-bottom: 1px solid var(--gold);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: var(--gold) !important;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            color: var(--white) !important;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--gold) !important;
+        }
+
+        .dropdown-menu {
+            background-color: var(--light-black);
+            border: 1px solid var(--gold);
+        }
+
+        .dropdown-item {
+            color: var(--white);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://z-cdn-media.chatglm.cn/files/9db07c67-ef27-47ab-b5a0-d60d6fe58a20.png?auth_key=1864780138-b26bbfa6c7104920a68a2650dd197f80-0-8c6ea48be1ddc0280ed9b6f3a73c5ab4');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--black);
+            font-weight: bold;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--dark-gold);
+            color: var(--white);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: var(--light-black);
+            border: 1px solid var(--gold);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: var(--light-black);
+            border-top: 1px solid var(--gold);
+            padding: 40px 0;
+        }
+
+        .footer h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            background-color: var(--black);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--gold);
+        }
+
+        .img-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .img-gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            transition: transform 0.3s;
+        }
+
+        .img-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .feature-box h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            background-color: var(--light-black);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+
+        .form-control {
+            background-color: var(--black);
+            border: 1px solid var(--gold);
+            color: var(--white);
+        }
+
+        .form-control:focus {
+            background-color: var(--black);
+            border-color: var(--dark-gold);
+            color: var(--white);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .pillar-card {
+            background-color: var(--light-black);
+            border: 1px solid var(--gold);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        .pillar-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+
+        .pillar-content ul {
+            padding-left: 20px;
+        }
+
+        .pillar-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Nuevo estilo para la sección de proyecto destacado */
+        .featured-project {
+            background: linear-gradient(135deg, var(--light-black) 0%, var(--black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://z-cdn-media.chatglm.cn/files/9db07c67-ef27-47ab-b5a0-d60d6fe58a20.png?auth_key=1864780138-b26bbfa6c7104920a68a2650dd197f80-0-8c6ea48be1ddc0280ed9b6f3a73c5ab4') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card {
+            background-color: rgba(30, 30, 30, 0.9);
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+            border-color: var(--dark-gold);
+        }
+
+        .project-logo {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 25px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(30, 30, 30, 0.95) 100%);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .project-logo:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+        }
+
+        .project-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            color: var(--black);
+        }
+
+        .project-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .project-feature {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .project-feature i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .project-feature p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .contact-info {
+            background-color: var(--light-black);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .project-card {
+                padding: 30px 20px;
+            }
+
+            .project-title {
+                font-size: 1.8rem;
+            }
+
+            .project-features {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="language-selector">
+        <div class="dropdown">
+            <button class="btn btn-outline-warning dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-globe"></i> <span data-es="Idioma" data-en="Language" data-ru="Язык" data-zh="语言">Язык</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('es')">Español</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('ru')">Русский</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('zh')">中文</a></li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="https://z-cdn-media.chatglm.cn/files/9e2cf81b-1706-4699-9484-6ca9f749440b.png?auth_key=1864780138-a667aedf1c924c4f99bd4645c1945ec7-0-6e358a721236869e191eb35a20879c10" alt="TAKYMA Logo" width="50" height="50" class="d-inline-block align-text-top">
+                TAKYMA INVESTMENT PIONEER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-es="Inicio" data-en="Home" data-ru="Главная" data-zh="首页">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-es="Sobre nosotros" data-en="About us" data-ru="О нас" data-zh="关于我们">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#strategic-value" data-es="Valor estratégico" data-en="Strategic value" data-ru="Стратегическая ценность" data-zh="战略价值">Стратегическая ценность</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#legal-structure" data-es="Estructura legal" data-en="Legal structure" data-ru="Юридическая структура" data-zh="法律结构">Юридическая структура</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#operational-architecture" data-es="Arquitectura operativa" data-en="Operational architecture" data-ru="Операционная архитектура" data-zh="运营架构">Операционная архитектура</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#featured-project" data-es="Proyecto destacado" data-en="Featured project" data-ru="Избранный проект" data-zh="特色项目">Избранный проект</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mission" data-es="Misión" data-en="Mission" data-ru="Миссия" data-zh="使命">Миссия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-es="Contacto" data-en="Contact" data-ru="Контакт" data-zh="联系">Контакт</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-es="TAKYMA INVESTMENT PIONEER" data-en="TAKYMA INVESTMENT PIONEER" data-ru="TAKYMA INVESTMENT PIONEER" data-zh="TAKYMA INVESTMENT PIONEER">TAKYMA INVESTMENT PIONEER</h1>
+            <p data-es="Liderando la Próxima Generación de Inversiones Inmobiliarias Hoteleras Exclusivas" data-en="Leading Next Generation of Exclusive Real Estate Hotel Investments" data-ru="Лидируя в следующем поколении эксклюзивных инвестиций в гостиничную недвижимость" data-zh="引领下一代独家酒店房地产投资">Лидируя в следующем поколении эксклюзивных инвестиций в гостиничную недвижимость</p>
+            <p data-es="Transformando Capital en Valor Sostenible y Generacional" data-en="Transforming Capital into Sustainable and Generational Value" data-ru="Преобразование капитала в устойчивую и поколенческую ценность" data-zh="将资本转化为可持续和世代价值">Преобразование капитала в устойчивую и поколенческую ценность</p>
+            <a href="#about" class="btn btn-gold" data-es="Descubrir más" data-en="Discover more" data-ru="Узнать больше" data-zh="了解更多">Узнать больше</a>
+        </div>
+    </section>
+
+    
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Sobre Takyma Investment Pioneer" data-en="About Takyma Investment Pioneer" data-ru="О Takyma Investment Pioneer" data-zh="关于 Takyma Investment Pioneer">О Takyma Investment Pioneer</h2>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="images/diversificacion.png" class="img-fluid rounded" alt="TAKYMA Diversificación" style="border: 2px solid var(--gold);">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="section-subtitle" data-es="Nuestra visión" data-en="Our vision" data-ru="Наше видение" data-zh="我们的愿景">Наше видение</h3>
+                    <p data-es="Takyma Investment Pioneer, con sede en Panamá, es una firma de inversión inmobiliaria especializada en el sector hotelero global. Fundada por promotores con una sólida trayectoria en finanzas, inmobiliario y servicios, Takyma supera el concepto de rentabilidad pasiva, enfocándose en la creación de valor mediante la revalorización de activos (subiendo hoteles de categoría) y el desarrollo de proyectos de impacto urbano (rehabilitación de barrios y ecoresorts)." data-en="Takyma Investment Pioneer, based in Panama, is a real estate investment firm specialized in the global hotel sector. Founded by promoters with a solid track record in finance, real estate and services, Takyma goes beyond the concept of passive profitability, focusing on value creation through asset revaluation (upgrading hotel categories) and the development of urban impact projects (neighborhood rehabilitation and ecoresorts)." data-ru="Takyma Investment Pioneer, базирующаяся в Панаме, является фирмой по инвестициям в недвижимость, специализирующейся на глобальном гостиничном секторе. Основанная промоутерами с солидным опытом в финансах, недвижимости и услугах, Takyma выходит за рамки концепции пассивной прибыльности, сосредотачиваясь на создании стоимости через переоценку активов (повышение категорий отелей) и разработку проектов с городским влиянием (реабилитация районов и эко-курорты)." data-zh="Takyma Investment Pioneer 总部位于巴拿马，是一家专门从事全球酒店业的房地产投资公司。由在金融、房地产和服务领域拥有坚实经验的发起人创立，Takyma 超越了被动盈利的概念，专注于通过资产重新评估（提升酒店类别）和城市影响项目开发（社区改造和生态度假村）来创造价值。">Takyma Investment Pioneer, базирующаяся в Панаме, является фирмой по инвестициям в недвижимость, специализирующейся на глобальном гостиничном секторе. Основанная промоутерами с солидным опытом в финансах, недвижимости и услугах, Takyma выходит за рамки концепции пассивной прибыльности, сосредотачиваясь на создании стоимости через переоценку активов (повышение категорий отелей) и разработку проектов с городским влиянием (реабилитация районов и эко-курорты).</p>
+                    
+                    <p data-es="Nuestra estrategia garantiza la excelencia operativa al delegar la gestión a cadenas internacionales especializadas, asegurando el máximo retorno a través de la innovación y la experiencia de clase mundial." data-en="Our strategy guarantees operational excellence by delegating management to specialized international chains, ensuring maximum return through innovation and world-class experience." data-ru="Наша стратегия гарантирует операционное превосходство путем делегирования управления специализированным международным сетям, обеспечивая максимальную отдачу через инновации и мировой опыт." data-zh="我们的战略通过将管理委托给专业国际连锁酒店来确保卓越运营，通过创新和世界一流的经验确保最大回报。">Наша стратегия гарантирует операционное превосходство путем делегирования управления специализированным международным сетям, обеспечивая максимальную отдачу через инновации и мировой опыт.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="strategic-value" class="section" style="background-color: var(--light-black);">
+        <div class="container">
+            <h2 class="section-title" data-es="Valor Estratégico para una Sociedad Patrimonial" data-en="Strategic Value for a Wealth Society" data-ru="Стратегическая ценность для общества благосостояния" data-zh="财富社会的战略价值">Стратегическая ценность для общества благосостояния</h2>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="section-subtitle" data-es="Enfoque a largo plazo" data-en="Long-term focus" data-ru="Долгосрочный фокус" data-zh="长期重点">Долгосрочный фокус</h3>
+                    
+                    
+                    <ul>
+                        <li data-es="Visión a Largo Plazo: Confirmar que la estrategia de revalorización de activos es un plan de acumulación de riqueza generacional más que de rendimiento trimestral." data-en="Long-Term Vision: Confirm that the asset revaluation strategy is a generational wealth accumulation plan rather than quarterly performance." data-ru="Долгосрочное видение: Подтвердить, что стратегия переоценки активов - это план накопления богатства поколений, а не квартальная производительность." data-zh="长期愿景：确认资产重新评估策略是世代财富积累计划，而非季度绩效。">Долгосрочное видение: Подтвердить, что стратегия переоценки активов - это план накопления богатства поколений, а не квартальная производительность.</li>
+                        <li data-es="Eficiencia y Solidez: Destacar la eficiencia de la estructura panameña y la seguridad de la gestión delegada." data-en="Efficiency and Solidity: Highlight the efficiency of the Panamanian structure and the security of delegated management." data-ru="Эффективность и солидность: Подчеркнуть эффективность панамской структуры и безопасность делегированного управления." data-zh="效率与稳健：突出巴拿马结构的效率和委托管理的安全性。">Эффективность и солидность: Подчеркнуть эффективность панамской структуры и безопасность делегированного управления.</li>
+                        <li data-es="Ambición de la Cartera: Justificar por qué la ambición de los proyectos (rehabilitación de barrios, upgrading hotelero) es el mejor uso del capital privado de la familia/grupo." data-en="Portfolio Ambition: Justify why the ambition of the projects (neighborhood rehabilitation, hotel upgrading) is the best use of the family/group's private capital." data-ru="Амбиции портфеля: Обосновать, почему амбиции проектов (реабилитация районов, повышение отелей) является лучшим использованием частного капитала семьи/группы." data-zh="投资组合雄心：证明项目的雄心（社区改造、酒店升级）是家族/集团私人资本的最佳用途。">Амбиции портфеля: Обосновать, почему амбиции проектов (реабилитация районов, повышение отелей) является лучшим использованием частного капитала семьи/группы.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://z-cdn-media.chatglm.cn/files/27aa378b-7782-4197-bc15-0189670a821b.png?auth_key=1864780138-5bd5350bd62146fe96f6332e93e7f973-0-825f38f1e0021b6f389e7be5a7e79f7f" class="img-fluid rounded" alt="TAKYMA Strategic Value">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="legal-structure" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Pilares de la Arquitectura Legal y Patrimonial" data-en="Pillars of the Legal and Heritage Architecture" data-ru="Столпы юридической и наследственной архитектуры" data-zh="法律和遗产架构的支柱">Столпы юридической и наследственной архитектуры</h2>
+            
+            <p data-es="El vehículo de inversión Takyma Investment Pioneer ha sido diseñado bajo los siguientes pilares fundamentales para garantizar la solidez, la eficiencia y la seguridad de los activos a largo plazo:" data-en="The Takyma Investment Pioneer investment vehicle has been designed under the following fundamental pillars to guarantee the solidity, efficiency and security of assets in the long term:" data-ru="Инвестиционный инструмент Takyma Investment Pioneer был разработан на следующих фундаментальных столпах для обеспечения прочности, эффективности и безопасности активов в долгосрочной перспективе:" data-zh="Takyma Investment Pioneer 投资工具是根据以下基本支柱设计的，以确保资产的长期稳健、效率和安全性：">Инвестиционный инструмент Takyma Investment Pioneer был разработан на следующих фундаментальных столпах для обеспечения прочности, эффективности и безопасности активов в долгосрочной перспективе:</p>
+            
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title" data-es="Pilar 1: Jurisdicción y Vehículo (Panamá)" data-en="Pillar 1: Jurisdiction and Vehicle (Panama)" data-ru="Столп 1: Юрисдикция и транспортное средство (Панама)" data-zh="支柱1：司法管辖区和载体（巴拿马）">Столп 1: Юрисдикция и транспортное средство (Панама)</h3>
+                        <div class="pillar-content">
+                            <ul>
+                                <li data-es="Vehículo Legal: Utilización de una Sociedad Anónima (S.A.) o estructura corporativa panameña." data-en="Legal Vehicle: Use of a Panamanian Anonymous Society (S.A.) or corporate structure." data-ru="Юридическое средство: Использование Панамского анонимного общества (S.A.) или корпоративной структуры." data-zh="法律载体：使用巴拿马匿名公司（S.A.）或公司结构。">Юридическое средство: Использование Панамского анонимного общества (S.A.) или корпоративной структуры.</li>
+                                <li data-es="Fundamento: La elección de Panamá como sede legal proporciona un marco de seguridad jurídica y flexibilidad operativa para las transacciones internacionales, al ser una plataforma ideal para el comercio y la inversión global." data-en="Foundation: The choice of Panama as legal headquarters provides a framework of legal security and operational flexibility for international transactions, being an ideal platform for global trade and investment." data-ru="Основание: Выбор Панамы в качестве юридической штаб-квартиры обеспечивает рамки юридической безопасности и операционной гибкости для международных транзакций, являясь идеальной платформой для глобальной торговли и инвестиций." data-zh="基础：选择巴拿马作为法律总部为国际交易提供了法律安全和运营灵活性的框架，是全球贸易和投资的理想平台。">Основание: Выбор Панамы в качестве юридической штаб-квартиры обеспечивает рамки юридической безопасности и операционной гибкости для международных транзакций, являясь идеальной платформой для глобальной торговли и инвестиций.</li>
+                                <li data-es="Enfoque Patrimonial: Se garantiza la privacidad y la estabilidad necesarias para la gestión del patrimonio familiar/privado, facilitando las inversiones transfronterizas sin las rigideces asociadas a otras jurisdicciones." data-en="Heritage Approach: The privacy and stability necessary for the management of family/private assets are guaranteed, facilitating cross-border investments without the rigidities associated with other jurisdictions." data-ru="Подход к наследованию: Гарантируется конфиденциальность и стабильность, необходимые для управления семейным/частным имуществом, облегчая трансграничные инвестиции без жесткости, связанной с другими юрисдикциями." data-zh="遗产方法：确保管理家族/私人资产所需的隐私和稳定性，促进跨境投资，不受与其他司法管辖区相关的僵化限制。">Подход к наследованию: Гарантируется конфиденциальность и стабильность, необходимые для управления семейным/частным имуществом, облегчая трансграничные инвестиции без жесткости, связанной с другими юрисдикциями.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title" data-es="Pilar 2: Protección y Segregación de Activos" data-en="Pillar 2: Asset Protection and Segregation" data-ru="Столп 2: Защита и сегрегация активов" data-zh="支柱2：资产保护和隔离">Столп 2: Защита и сегрегация активов</h3>
+                        <div class="pillar-content">
+                            <ul>
+                                <li data-es="Finalidad Exclusiva: La compañía está concebida como un holding patrimonial, cuyo fin principal es la tenencia, revalorización y protección de los bienes inmuebles a largo plazo, minimizando el riesgo operativo." data-en="Exclusive Purpose: The company is conceived as a heritage holding, whose main purpose is the long-term holding, revaluation and protection of real estate, minimizing operational risk." data-ru="Эксклюзивная цель: Компания задумана как наследственный холдинг, основной целью которого является долгосрочное владение, переоценка и защита недвижимости, минимизируя операционный риск." data-zh="专属目的：公司被设计为遗产控股公司，其主要目的是长期持有、重新评估和保护房地产，最大限度地降低运营风险。">Эксклюзивная цель: Компания задумана как наследственный холдинг, основной целью которого является долгосрочное владение, переоценка и защита недвижимости, минимизируя операционный риск.</li>
+                                <li data-es="Separación de Riesgos: Cada proyecto de inversión de gran envergadura (como el desarrollo urbano o la adquisición de un hotel específico) estará legalmente segregado mediante la creación de Sociedades de Propósito Especial (SPV) o subsidiarias en las jurisdicciones locales." data-en="Risk Separation: Each large-scale investment project (such as urban development or the acquisition of a specific hotel) will be legally segregated through the creation of Special Purpose Societies (SPV) or subsidiaries in local jurisdictions." data-ru="Разделение рисков: Каждый крупномасштабный инвестиционный проект (такой как городское развитие или приобретение конкретного отеля) будет юридически сегрегирован через создание Обществ специального назначения (SPV) или дочерних компаний в местных юрисдикциях." data-zh="风险分离：每个大型投资项目（如城市发展或收购特定酒店）将通过在本地司法管辖区创建特殊目的公司（SPV）或子公司进行法律分离。">Разделение рисков: Каждый крупномасштабный инвестиционный проект (такой как городское развитие или приобретение конкретного отеля) будет юридически сегрегирован через создание Обществ специального назначения (SPV) или дочерних компаний в местных юрисдикциях.</li>
+                                <li data-es="Beneficio: Este modelo de segregación protege el capital de la sociedad holding de cualquier litigio o riesgo operacional que pueda surgir en un activo particular, ofreciendo una capa de protección de responsabilidad limitada sobre el patrimonio central de Takyma." data-en="Benefit: This segregation model protects the capital of the holding company from any litigation or operational risk that may arise in a particular asset, offering a layer of limited liability protection over Takyma's central heritage." data-ru="Преимущество: Эта модель сегрегации защищает капитал холдинговой компании от любого судебного разбирательства или операционного риска, который может возникнуть в конкретном активе, предлагая слой защиты с ограниченной ответственностью над центральным наследием Takyma." data-zh="好处：这种分离模式保护控股公司的资本免受可能出现在特定资产上的任何诉讼或运营风险，为Takyma的核心遗产提供有限责任保护层。">Преимущество: Эта модель сегрегации защищает капитал холдинговой компании от любого судебного разбирательства или операционного риска, который может возникнуть в конкретном активе, предлагая слой защиты с ограниченной ответственностью над центральным наследием Takyma.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title" data-es="Pilar 3: Gobernanza y Continuidad" data-en="Pillar 3: Governance and Continuity" data-ru="Столп 3: Управление и непрерывность" data-zh="支柱3：治理和连续性">Столп 3: Управление и непрерывность</h3>
+                        <div class="pillar-content">
+                            <ul>
+                                <li data-es="Órgano de Gobierno: Se establecerá un Consejo de Administración o Junta Directiva con reglas claras de sucesión y toma de decisiones, garantizando la continuidad de la visión estratégica de los promotores a través de las generaciones." data-en="Governing Body: A Board of Directors or Board of Directors will be established with clear rules of succession and decision-making, ensuring the continuity of the strategic vision of the promoters through generations." data-ru="Орган управления: Будет создан Совет директоров или Правление с четкими правилами преемственности и принятия решений, обеспечивая непрерывность стратегического видения промоутеров через поколения." data-zh="治理机构：将建立一个董事会或董事会，具有明确的继承和决策规则，确保发起人的战略愿景代代相传。">Орган управления: Будет создан Совет директоров или Правление с четкими правилами преемственности и принятия решений, обеспечивая непрерывность стратегического видения промоутеров через поколения.</li>
+                                <li data-es="Control Fiduciario: La estructura legal contempla mecanismos para mantener el control estratégico por parte de los fundadores/socios principales, incluso cuando la gestión operativa se delega a terceros (cadenas hoteleras)." data-en="Fiduciary Control: The legal structure contemplates mechanisms to maintain strategic control by the founders/main partners, even when operational management is delegated to third parties (hotel chains)." data-ru="Фидуциарный контроль: Юридическая структура предусматривает механизмы для поддержания стратегического контроля со стороны основателей/основных партнеров, даже когда операционное управление делегируется третьим лицам (отельным сетям)." data-zh="信托控制：法律结构考虑了机制，以保持创始人/主要合作伙伴的战略控制，即使运营管理委托给第三方（连锁酒店）。">Фидуциарный контроль: Юридическая структура предусматривает механизмы для поддержания стратегического контроля со стороны основателей/основных партнеров, даже когда операционное управление делегируется третьим лицам (отельным сетям).</li>
+                                <li data-es="Transparencia Interna: Implementación de un protocolo de comunicación y reporting interno que asegura que los socios estén informados sobre el rendimiento y el estado de cada activo de la cartera." data-en="Internal Transparency: Implementation of an internal communication and reporting protocol that ensures that partners are informed about the performance and status of each asset in the portfolio." data-ru="Внутренняя прозрачность: Внедрение протокола внутренней коммуникации и отчетности, который обеспечивает, чтобы партнеры были информированы о производительности и состоянии каждого актива в портфеле." data-zh="内部透明度：实施内部沟通和报告协议，确保合作伙伴了解投资组合中每个资产的绩效和状况。">Внутренняя прозрачность: Внедрение протокола внутренней коммуникации и отчетности, который обеспечивает, чтобы партнеры были информированы о производительности и состоянии каждого актива в портфеле.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="operational-architecture" class="section" style="background-color: var(--light-black);">
+        <div class="container">
+            <h2 class="section-title" data-es="Arquitectura Operativa: Estrategia de Delegación y Control" data-en="Operational Architecture: Delegation and Control Strategy" data-ru="Операционная архитектура: Стратегия делегирования и контроля" data-zh="运营架构：委托与控制策略">Операционная архитектура: Стратегия делегирования и контроля</h2>
+            
+            <p data-es="El modelo operativo de Takyma Investment Pioneer está diseñado para combinar la visión estratégica a largo plazo de la sociedad patrimonial con la máxima eficiencia operativa de líderes mundiales, garantizando la revalorización de los activos." data-en="The operational model of Takyma Investment Pioneer is designed to combine the long-term strategic vision of the heritage society with the maximum operational efficiency of world leaders, guaranteeing the revaluation of assets." data-ru="Операционная модель Takyma Investment Pioneer разработана для сочетания долгосрочного стратегического видения общества наследия с максимальной операционной эффективностью мировых лидеров, гарантируя переоценку активов." data-zh="Takyma Investment Pioneer 的运营模式旨在将遗产社会的长期战略愿景与世界领导者的最高运营效率相结合，确保资产的重新评估。">Операционная модель Takyma Investment Pioneer разработана для сочетания долгосрочного стратегического видения общества наследия с максимальной операционной эффективностью мировых лидеров, гарантируя переоценку активов.</p>
+            
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title" data-es="Pilar 1: Delegación Especializada de la Gestión" data-en="Pillar 1: Specialized Management Delegation" data-ru="Столп 1: Специализированное делегирование управления" data-zh="支柱1：专业化管理委托">Столп 1: Специализированное делегирование управления</h3>
+                        <div class="pillar-content">
+                            <ul>
+                                <li data-es="Principio: La gestión diaria, la operación hotelera y la comercialización se delegan exclusivamente a Cadenas Hoteleras Internacionales (CHI) con expertise comprobado en el segmento de lujo (4 y 5 estrellas) y en las jurisdicciones relevantes." data-en="Principle: Daily management, hotel operation and marketing are delegated exclusively to International Hotel Chains (CHI) with proven expertise in the luxury segment (4 and 5 stars) and in the relevant jurisdictions." data-ru="Принцип: Ежедневное управление, операция отеля и маркетинг делегируются исключительно Международным отельным сетям (CHI) с доказанным опытом в сегменте люкс (4 и 5 звезд) и в соответствующих юрисдикциях." data-zh="原则：日常管理、酒店运营和营销仅委托给在豪华细分市场（4星和5星）和相关司法管辖区具有公认专业知识的国际连锁酒店（CHI）。">Принцип: Ежедневное управление, операция отеля и маркетинг делегируются исключительно Международным отельным сетям (CHI) с доказанным опытом в сегменте люкс (4 и 5 звезд) и в соответствующих юрисдикциях.</li>
+                                <li data-es="Modelo Best-in-Class: La selección de la CHI es un proceso riguroso y se negocia caso por caso. Si el activo es un hotel de lujo en Asia, se buscará la CHI líder en ese nicho y región, asegurando que el know-how de gestión esté optimizado para el activo específico." data-en="Best-in-Class Model: The selection of the CHI is a rigorous process and is negotiated case by case. If the asset is a luxury hotel in Asia, the leading CHI in that niche and region will be sought, ensuring that management know-how is optimized for the specific asset." data-ru="Модель Best-in-Class: Выбор CHI - это строгий процесс и ведется переговоры по каждому случаю. Если актив - это люкс-отель в Азии, будет найдена ведущая CHI в этой нише и регионе, обеспечивая, чтобы управленческие ноу-хау были оптимизированы для конкретного актива." data-zh="最佳类别模式：CHI的选择是一个严格的过程，并且是逐案协商的。如果资产是亚洲的豪华酒店，将寻找该细分市场和地区的领先CHI，确保管理专业知识针对特定资产进行优化。">Модель Best-in-Class: Выбор CHI - это строгий процесс и ведется переговоры по каждому случаю. Если актив - это люкс-отель в Азии, будет найдена ведущая CHI в этой нише и регионе, обеспечивая, чтобы управленческие ноу-хау были оптимизированы для конкретного актива.</li>
+                                <li data-es="Foco en la Revalorización: Al delegar la operación, Takyma puede concentrar todos sus recursos en su verdadero valor añadido: la estructuración financiera, la ejecución de las mejoras de capital (CapEx) y la supervisión estratégica para elevar la categoría del activo." data-en="Focus on Revaluation: By delegating the operation, Takyma can concentrate all its resources on its true added value: financial structuring, execution of capital improvements (CapEx) and strategic supervision to raise the category of the asset." data-ru="Фокус на переоценке: Делегируя операцию, Takyma может сосредоточить все свои ресурсы на своей истинной добавленной стоимости: финансовой структуризации, выполнении улучшений капитала (CapEx) и стратегическом надзоре для повышения категории актива." data-zh="专注于重新评估：通过委托运营，Takyma可以将其所有资源集中在其真正的附加价值上：财务结构化、资本改进（CapEx）的执行以及提高资产类别的战略监督。">Фокус на переоценке: Делегируя операцию, Takyma может сосредоточить все свои ресурсы на своей истинной добавленной стоимости: финансовой структуризации, выполнении улучшений капитала (CapEx) и стратегическом надзоре для повышения категории актива.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title" data-es="Pilar 2: Control Estratégico y Financiero" data-en="Pillar 2: Strategic and Financial Control" data-ru="Столп 2: Стратегический и финансовый контроль" data-zh="支柱2：战略和财务控制">Столп 2: Стратегический и финансовый контроль</h3>
+                        <div class="pillar-content">
+                            <ul>
+                                <li data-es="Acuerdos de Gestión (Management Agreements): La relación con las CHI se formaliza mediante Acuerdos de Gestión meticulosos que priorizan los intereses de Takyma. Estos contratos incluyen KPIs de Rendimiento Financiero estrictos y Cláusulas de Desempeño que permiten la renegociación o terminación si no se alcanzan las métricas clave." data-en="Management Agreements: The relationship with the CHIs is formalized through meticulous Management Agreements that prioritize Takyma's interests. These contracts include strict Financial Performance KPIs and Performance Clauses that allow renegotiation or termination if key metrics are not met." data-ru="Соглашения об управлении: Отношения с CHI формализуются через тщательные Соглашения об управлении, которые приоритизируют интересы Takyma. Эти контракты включают строгие KPI финансовой производительности и Клаузы производительности, которые позволяют пересмотр или прекращение, если ключевые метрики не достигаются." data-zh="管理协议：与CHI的关系通过优先考虑Takyma利益的周密管理协议正式确定。这些合同包括严格的财务绩效KPI和绩效条款，如果未达到关键指标，允许重新协商或终止。">Соглашения об управлении: Отношения с CHI формализуются через тщательные Соглашения об управлении, которые приоритизируют интересы Takyma. Эти контракты включают строгие KPI финансовой производительности и Клаузы производительности, которые позволяют пересмотр или прекращение, если ключевые метрики не достигаются.</li>
+                                <li data-es="Comités de Supervisión: Takyma mantendrá una participación activa en los Comités de Dirección y Financieros de las sociedades operativas (SPVs), asegurando el alineamiento del gestor con el plan de revalorización y la política de gastos de capital." data-en="Supervision Committees: Takyma will maintain an active participation in the Management and Financial Committees of the operating societies (SPVs), ensuring the alignment of the manager with the revaluation plan and capital expenditure policy." data-ru="Комитеты надзора: Takyma будет поддерживать активное участие в Комитетах управления и финансов операционных обществ (SPV), обеспечивая соответствие менеджера плану переоценки и политике капитальных расходов." data-zh="监督委员会：Takyma将积极参与运营公司（SPV）的管理和财务委员会，确保管理者与重新评估计划和资本支出政策保持一致。">Комитеты надзора: Takyma будет поддерживать активное участие в Комитетах управления и финансов операционных обществ (SPV), обеспечивая соответствие менеджера плану переоценки и политике капитальных расходов.</li>
+                                <li data-es="Transparencia: Se exige un reporting financiero y operativo detallado y recurrente, proporcionando a los socios de la patrimonial una visibilidad completa del rendimiento de cada activo." data-en="Transparency: Detailed and recurring financial and operational reporting is required, providing the heritage partners with complete visibility of the performance of each asset." data-ru="Прозрачность: Требуется подробная и повторяющаяся финансовая и операционная отчетность, предоставляя партнерам наследия полную видимость производительности каждого актива." data-zh="透明度：要求详细和定期的财务和运营报告，为遗产合作伙伴提供每个资产绩效的完整可见性。">Прозрачность: Требуется подробная и повторяющаяся финансовая и операционная отчетность, предоставляя партнерам наследия полную видимость производительности каждого актива.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title" data-es="Pilar 3: Implementación del Upgrading" data-en="Pillar 3: Implementation of Upgrading" data-ru="Столп 3: Реализация повышения" data-zh="支柱3：升级实施">Столп 3: Реализация повышения</h3>
+                        <div class="pillar-content">
+                            <ul>
+                                <li data-es="Rol de Takyma: La sociedad patrimonial es la encargada de aprobar, financiar y supervisar la ejecución de las obras de rehabilitación y mejora necesarias para pasar de 3 a 4 estrellas, y de 4 a 5 estrellas." data-en="Role of Takyma: The heritage society is responsible for approving, financing and supervising the execution of the rehabilitation and improvement works necessary to go from 3 to 4 stars, and from 4 to 5 stars." data-ru="Роль Takyma: Общество наследия отвечает за утверждение, финансирование и надзор за выполнением работ по реабилитации и улучшению, необходимых для перехода с 3 на 4 звезды, и с 4 на 5 звезд." data-zh="Takyma的角色：遗产社会负责批准、资助和监督从3星升级到4星以及从4星升级到5星所需的修复和改进工程的执行。">Роль Takyma: Общество наследия отвечает за утверждение, финансирование и надзор за выполнением работ по реабилитации и улучшению, необходимых для перехода с 3 на 4 звезды, и с 4 на 5 звезд.</li>
+                                <li data-es="Colaboración con la CHI: La cadena gestora aporta su input técnico sobre las especificaciones de diseño y servicio requeridas para alcanzar la nueva categoría deseada, asegurando que la inversión de Takyma se traduzca directamente en un aumento en la clasificación y, por ende, en la tarifa promedio diaria (ADR)." data-en="Collaboration with the CHI: The managing chain contributes its technical input on the design and service specifications required to reach the desired new category, ensuring that Takyma's investment translates directly into an increase in classification and, therefore, in the average daily rate (ADR)." data-ru="Сотрудничество с CHI: Управляющая сеть вносит свой технический вклад в спецификации дизайна и обслуживания, необходимые для достижения новой желаемой категории, обеспечивая, чтобы инвестиции Takyma напрямую переводились в увеличение классификации и, следовательно, в среднесуточную ставку (ADR)." data-zh="与CHI的合作：管理连锁酒店就达到所需新类别的设计和服务规格提供技术意见，确保Takyma的投资直接转化为分类增加，从而提高平均每日房价（ADR）。">Сотрудничество с CHI: Управляющая сеть вносит свой технический вклад в спецификации дизайна и обслуживания, необходимые для достижения новой желаемой категории, обеспечивая, чтобы инвестиции Takyma напрямую переводились в увеличение классификации и, следовательно, в среднесуточную ставку (ADR).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="featured-project" class="section featured-project">
+        <div class="container project-content">
+            <h2 class="section-title" data-es="Proyecto Destacado" data-en="Featured Project" data-ru="Избранный проект" data-zh="特色项目">Избранный проект</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="project-card">
+                        <div class="project-logo">
+                            <img src="images/ecoresort.png" alt="Ecoresort Porcada Sanctuary Logo" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                        </div>
+                        <h3 class="project-title" data-es="Porcada Sanctuary" data-en="Porcada Sanctuary" data-ru="Porcada Sanctuary" data-zh="Porcada Sanctuary">Porcada Sanctuary</h3>
+                        
+                        <p class="project-description" data-es="Un oasis exclusivo donde el lujo se encuentra con la naturaleza. Porcada Sanctuary representa la materialización de nuestra filosofía de inversión: crear destinos únicos que trascienden el concepto tradicional de hospitalidad." data-en="An exclusive oasis where luxury meets nature. Porcada Sanctuary represents the materialization of our investment philosophy: creating unique destinations that transcend the traditional concept of hospitality." data-ru="Эксклюзивный оазис, где роскошь встречается с природой. Porcada Sanctuary представляет собой материализацию нашей инвестиционной философии: создание уникальных направлений, которые выходят за рамки традиционного концепта гостеприимства." data-zh="一个奢华与自然相遇的专属绿洲。Porcada Sanctuary 代表了我们投资哲学的体现：创造超越传统酒店概念的独特目的地。">Эксклюзивный оазис, где роскошь встречается с природой. Porcada Sanctuary представляет собой материализацию нашей инвестиционной философии: создание уникальных направлений, которые выходят за рамки традиционного концепта гостеприимства.</p>
+                        
+                        <div class="project-features">
+                            <div class="project-feature">
+                                <i class="fas fa-leaf"></i>
+                                <p data-es="Sostenibilidad" data-en="Sustainability" data-ru="Устойчивость" data-zh="可持续性">Устойчивость</p>
+                            </div>
+                            <div class="project-feature">
+                                <i class="fas fa-gem"></i>
+                                <p data-es="Lujo Exclusivo" data-en="Exclusive Luxury" data-ru="Эксклюзивная роскошь" data-zh="专属奢华">Эксклюзивная роскошь</p>
+                            </div>
+                            <div class="project-feature">
+                                <i class="fas fa-heart"></i>
+                                <p data-es="Bienestar Integral" data-en="Comprehensive Wellness" data-ru="Комплексное благополучие" data-zh="全面健康">Комплексное благополучие</p>
+                            </div>
+                            <div class="project-feature">
+                                <i class="fas fa-globe-americas"></i>
+                                <p data-es="Ubicación Privilegiada" data-en="Privileged Location" data-ru="Привилегированное расположение" data-zh="优越位置">Привилегированное расположение</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://fullporcada.netlify.app/" target="_blank" class="project-link" data-es="Explorar Proyecto" data-en="Explore Project" data-ru="Исследовать проект" data-zh="探索项目">Исследовать проект</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="mission" class="section">
+        <div class="container">
+            <h2 class="section-title" data-es="Conclusión y Declaración de Misión" data-en="Conclusion and Mission Statement" data-ru="Заключение и заявление о миссии" data-zh="结论和使命宣言">Заключение и заявление о миссии</h2>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="section-subtitle" data-es="La Solidez del Patrimonio" data-en="The Solidity of Heritage" data-ru="Прочность наследия" data-zh="遗产的稳固性">Прочность наследия</h3>
+                    <p data-es="Takyma Investment Pioneer representa la culminación de la experiencia de sus promotores en un vehículo de inversión diseñado para la expansión de capital a largo plazo y la protección patrimonial. Hemos establecido una estructura robusta con sede en Panamá, basada en la segregación de activos y una gobernanza clara, lo cual nos permite abordar proyectos de alta ambición (desde la rehabilitación urbana hasta el upgrading hotelero global)." data-en="Takyma Investment Pioneer represents the culmination of the experience of its promoters in an investment vehicle designed for long-term capital expansion and heritage protection. We have established a robust structure based in Panama, based on asset segregation and clear governance, which allows us to address high-ambition projects (from urban rehabilitation to global hotel upgrading)." data-ru="Takyma Investment Pioneer представляет собой кульминацию опыта его промоутеров в инвестиционном средстве, разработанном для долгосрочного расширения капитала и защиты наследия. Мы установили прочную структуру, базирующуюся в Панаме, основанную на сегрегации активов и ясном управлении, что позволяет нам решать проекты с высокими амбициями (от городской реабилитации до глобального повышения отелей)." data-zh="Takyma Investment Pioneer 代表其发起人在为长期资本扩张和遗产保护设计的投资工具中的经验结晶。我们在巴拿马建立了一个基于资产分离和明确治理的稳健结构，这使我们能够处理高雄心的项目（从城市改造到全球酒店升级）。">Takyma Investment Pioneer представляет собой кульминацию опыта его промоутеров в инвестиционном средстве, разработанном для долгосрочного расширения капитала и защиты наследия. Мы установили прочную структуру, базирующуюся в Панаме, основанную на сегрегации активов и ясном управлении, что позволяет нам решать проекты с высокими амбициями (от городской реабилитации до глобального повышения отелей).</p>
+                    
+                    <p data-es="Al fusionar la visión estratégica de Takyma con la excelencia operativa de cadenas internacionales, aseguramos que cada activo no solo genere rendimiento, sino que sea revalorizado activamente para maximizar el patrimonio subyacente. Takyma es el instrumento estratégico para la gestión y crecimiento de nuestros activos." data-en="By merging Takyma's strategic vision with the operational excellence of international chains, we ensure that each asset not only generates performance, but is actively revalued to maximize the underlying heritage. Takyma is the strategic instrument for the management and growth of our assets." data-ru="Объединяя стратегическое видение Takyma с операционным превосходством международных сетей, мы обеспечиваем, чтобы каждый актив не только генерировал производительность, но и активно переоценивался для максимизации лежащего в основе наследия. Takyma - это стратегический инструмент для управления и роста наших активов." data-zh="通过将Takyma的战略愿景与国际连锁酒店的卓越运营相结合，我们确保每个资产不仅产生绩效，而且被积极重新评估以最大化基础遗产。Takyma是我们资产管理和增长的战略工具。">Объединяя стратегическое видение Takyma с операционным превосходством международных сетей, мы обеспечиваем, чтобы каждый актив не только генерировал производительность, но и активно переоценивался для максимизации лежащего в основе наследия. Takyma - это стратегический инструмент для управления и роста наших активов.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://z-cdn-media.chatglm.cn/files/df763a2e-5190-47ed-a218-da1ff08f9e85.png?auth_key=1864780138-24c93d93690a4a81bb24a30865411dfd-0-6410ca5dd32ef8292fe599429ee79848" class="img-fluid rounded" alt="TAKYMA Mission">
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title text-center" data-es="Declaración de Misión Final" data-en="Final Mission Statement" data-ru="Финальное заявление о миссии" data-zh="最终使命宣言">Финальное заявление о миссии</h3>
+                        <blockquote class="blockquote">
+                            <p class="mb-4" data-es="" takyma investment pioneer: transformando capital en valor sostenible y generacional."" data-en="" takyma investment pioneer: transforming capital into sustainable and generational value."" data-ru="" takyma investment pioneer: преобразование капитала в устойчивую и поколенческую ценность."" data-zh="" takyma investment pioneer：将资本转化为可持续和世代价值。""></p>
+                        </blockquote>
+                        <p data-es="Nuestra Misión es aplicar una visión pionera y experiencia de clase mundial para adquirir y revalorizar activos inmobiliarios exclusivos, garantizando la solidez, la eficiencia y la expansión constante del patrimonio para nuestros socios a través de las próximas décadas." data-en="Our Mission is to apply a pioneering vision and world-class experience to acquire and revalue exclusive real estate assets, guaranteeing the solidity, efficiency and constant expansion of the heritage for our partners through the coming decades." data-ru="Наша миссия - применять пионерское видение и мировой опыт для приобретения и переоценки эксклюзивных активов недвижимости, гарантируя прочность, эффективность и постоянное расширение наследия для наших партнеров в ближайшие десятилетия." data-zh="我们的使命是应用先锋愿景和世界一流经验来获取和重新评估独家房地产资产，确保我们合作伙伴的遗产在未来几十年内的稳健、效率和持续扩张。">Наша миссия - применять пионерское видение и мировой опыт для приобретения и переоценки эксклюзивных активов недвижимости, гарантируя прочность, эффективность и постоянное расширение наследия для наших партнеров в ближайшие десятилетия.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="section" style="background-color: var(--light-black);">
+        <div class="container">
+            <h2 class="section-title" data-es="Contáctenos" data-en="Contact us" data-ru="Свяжитесь с нами" data-zh="联系我们">Свяжитесь с нами</h2>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h3 class="section-subtitle" data-es="Envíenos un mensaje" data-en="Send us a message" data-ru="Отправьте нам сообщение" data-zh="给我们发送消息">Отправьте нам сообщение</h3>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label" data-es="Nombre completo" data-en="Full name" data-ru="Полное имя" data-zh="全名">Полное имя</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label" data-es="Correo electrónico" data-en="Email address" data-ru="Адрес электронной почты" data-zh="电子邮件地址">Адрес электронной почты</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label" data-es="Asunto" data-en="Subject" data-ru="Тема" data-zh="主题">Тема</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label" data-es="Mensaje" data-en="Message" data-ru="Сообщение" data-zh="消息">Сообщение</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gold" data-es="Enviar mensaje" data-en="Send message" data-ru="Отправить сообщение" data-zh="发送消息">Отправить сообщение</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h3 class="section-subtitle" data-es="Información de contacto" data-en="Contact information" data-ru="Контактная информация" data-zh="联系信息">Контактная информация</h3>
+                        <div class="mb-4">
+                            <h4 data-es="Sede principal" data-en="Headquarters" data-ru="Штаб-квартира" data-zh="总部">Штаб-квартира</h4>
+                            <p data-es="Avenida Balboa, Ciudad de Panamá<br>República de Panamá" data-en="Balboa Avenue, Panama City<br>Republic of Panama" data-ru="Проспект Балбоа, Панама<br>Республика Панама" data-zh="巴尔博亚大道，巴拿马城<br>巴拿马共和国">Проспект Балбоа, Панама<br>Республика Панама<br>República de Panamá</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 data-es="Teléfono" data-en="Phone" data-ru="Телефон" data-zh="电话">Телефон</h4>
+                            <p>+507 123-4567</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 data-es="Correo electrónico" data-en="Email" data-ru="Электронная почта" data-zh="电子邮件">Электронная почта</h4>
+                            <p>info@takymainvestment.com</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 data-es="Síguenos en redes sociales" data-en="Follow us on social media" data-ru="Следите за нами в социальных сетях" data-zh="在社交媒体上关注我们">Следите за нами в социальных сетях</h4>
+                            <div class="social-icons">
+                                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4 data-es="Sobre nosotros" data-en="About us" data-ru="О нас" data-zh="关于我们">О нас</h4>
+                    <p data-es="TAKYMA INVESTMENT PIONEER redefine la inversión estratégica en hotelería de lujo, transformando activos icónicos en legados perdurables." data-en="TAKYMA INVESTMENT PIONEER redefines strategic investment in luxury hospitality, transforming iconic assets into lasting legacies." data-ru="TAKYMA INVESTMENT PIONEER переопределяет стратегические инвестиции в гостеприимство класса люкс, преобразуя знаковые активы в долговечное наследие." data-zh="TAKYMA INVESTMENT PIONEER 重新定义奢华酒店业的战略投资，将标志性资产转变为持久遗产。">TAKYMA INVESTMENT PIONEER переопределяет стратегические инвестиции в гостеприимство класса люкс, преобразуя знаковые активы в долговечное наследие.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 data-es="Enlaces rápidos" data-en="Quick links" data-ru="Быстрые ссылки" data-zh="快速链接">Быстрые ссылки</h4>
+                    <ul>
+                        <li><a href="#home" data-es="Inicio" data-en="Home" data-ru="Главная" data-zh="首页">Главная</a></li>
+                        <li><a href="#about" data-es="Sobre nosotros" data-en="About us" data-ru="О нас" data-zh="关于我们">О нас</a></li>
+                        <li><a href="#strategic-value" data-es="Valor estratégico" data-en="Strategic value" data-ru="Стратегическая ценность" data-zh="战略价值">Стратегическая ценность</a></li>
+                        <li><a href="#legal-structure" data-es="Estructura legal" data-en="Legal structure" data-ru="Юридическая структура" data-zh="法律结构">Юридическая структура</a></li>
+                        <li><a href="#operational-architecture" data-es="Arquitectura operativa" data-en="Operational architecture" data-ru="Операционная архитектура" data-zh="运营架构">Операционная архитектура</a></li>
+                        <li><a href="#featured-project" data-es="Proyecto destacado" data-en="Featured project" data-ru="Избранный проект" data-zh="特色项目">Избранный проект</a></li>
+                        <li><a href="#mission" data-es="Misión" data-en="Mission" data-ru="Миссия" data-zh="使命">Миссия</a></li>
+                        <li><a href="#contact" data-es="Contacto" data-en="Contact" data-ru="Контакт" data-zh="联系">Контакт</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 data-es="Conecta con nosotros" data-en="Connect with us" data-ru="Свяжитесь с нами" data-zh="与我们联系">Свяжитесь с нами</h4>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <div class="copyright">
+        <div class="container">
+            <p class="mb-0" data-es="© 2025 TAKYMA INVESTMENT PIONEER. Todos los derechos reservados." data-en="© 2025 TAKYMA INVESTMENT PIONEER. All rights reserved." data-ru="© 2025 TAKYMA INVESTMENT PIONEER. Все права защищены." data-zh="© 2025 TAKYMA INVESTMENT PIONEER。保留所有权利。">© 2025 TAKYMA INVESTMENT PIONEER. Все права защищены.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ============================================================
+        //  SISTEMA DE TRADUCCIÓN ROBUSTO - 4 IDIOMAS
+        //  Español (es) | English (en) | Русский (ru) | 中文 (zh)
+        // ============================================================
+
+        // Mapa de nombres legibles para el botón del selector
+        var LANGUAGE_NAMES = {
+            'es': 'Español',
+            'en': 'English',
+            'ru': 'Русский',
+            'zh': '中文'
+        };
+
+        // Banderas (emoji) para mostrar junto al nombre del idioma
+        var LANGUAGE_FLAGS = {
+            'es': '🇪🇸',
+            'en': '🇬🇧',
+            'ru': '🇷🇺',
+            'zh': '🇨🇳'
+        };
+
+        /**
+         * Aplica el idioma seleccionado a TODOS los elementos traducibles.
+         * Usa un try/catch por cada elemento para que un fallo aislado no
+         * rompa el resto de traducciones.
+         */
+        function changeLanguage(lang) {
+            // Validar idioma; por defecto, español
+            if (!LANGUAGE_NAMES[lang]) lang = 'es';
+
+            // Guardar preferencia (con try/catch por si localStorage está bloqueado)
+            try {
+                localStorage.setItem('selectedLanguage', lang);
+            } catch (e) {
+                // localStorage no disponible (file:// o modo privado) — no es fatal
+            }
+
+            // Recorrer todos los elementos que tienen al menos un atributo data-{lang}
+            var elements = document.querySelectorAll('[data-es], [data-en], [data-ru], [data-zh]');
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                try {
+                    // El botón del selector se gestiona aparte
+                    if (element.id === 'languageDropdown') continue;
+
+                    var translation = element.getAttribute('data-' + lang);
+                    if (!translation) continue;
+
+                    // Inputs y textareas usan placeholder
+                    var tag = element.tagName.toUpperCase();
+                    if (tag === 'INPUT' || tag === 'TEXTAREA') {
+                        element.setAttribute('placeholder', translation);
+                    } else {
+                        // innerHTML para conservar <br> y otros tags inline
+                        element.innerHTML = translation;
+                    }
+                } catch (err) {
+                    // Silenciar errores individuales para no romper el resto
+                    if (typeof console !== 'undefined' && console.warn) {
+                        console.warn('No se pudo traducir un elemento:', element, err);
+                    }
+                }
+            }
+
+            // Actualizar el atributo lang del <html> (accesibilidad y SEO)
+            document.documentElement.lang = lang;
+
+            // Actualizar el botón del selector de idioma
+            var dropdownButton = document.getElementById('languageDropdown');
+            if (dropdownButton) {
+                dropdownButton.innerHTML = '<i class="fas fa-globe"></i> ' +
+                    LANGUAGE_FLAGS[lang] + ' ' + LANGUAGE_NAMES[lang];
+            }
+
+            // Actualizar el texto "Idioma" del botón también via data-*
+            var labelSpan = dropdownButton ? dropdownButton.querySelector('[data-es]') : null;
+            // (Ya se tradujo en el bucle anterior, este paso es redundante pero seguro)
+        }
+
+        // ============================================================
+        //  SCROLL SUAVE para los enlaces de navegación
+        // ============================================================
+        function setupSmoothScroll() {
+            var anchors = document.querySelectorAll('a[href^="#"]');
+            for (var i = 0; i < anchors.length; i++) {
+                anchors[i].addEventListener('click', function (e) {
+                    var href = this.getAttribute('href');
+                    if (href === '#' || href.length < 2) return;
+                    var target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        }
+
+        // ============================================================
+        //  INICIALIZACIÓN — Aplicar el idioma lo antes posible
+        // ============================================================
+        function initLanguage() {
+            var savedLang = 'es'; // por defecto español
+            try {
+                var stored = localStorage.getItem('selectedLanguage');
+                if (stored && LANGUAGE_NAMES[stored]) {
+                    savedLang = stored;
+                }
+            } catch (e) {
+                // localStorage no disponible
+            }
+            // También soportar ?lang=XX en la URL (útil para compartir enlaces)
+            try {
+                var urlParams = new URLSearchParams(window.location.search);
+                var urlLang = urlParams.get('lang');
+                if (urlLang && LANGUAGE_NAMES[urlLang]) {
+                    savedLang = urlLang;
+                }
+            } catch (e) {
+                // URLSearchParams no disponible
+            }
+            changeLanguage(savedLang);
+        }
+
+        // Ejecutar inmediatamente si el DOM ya está listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () {
+                setupSmoothScroll();
+                initLanguage();
+            });
+        } else {
+            // DOMContentLoaded ya pasó (script cargado tarde)
+            setupSmoothScroll();
+            initLanguage();
+        }
+    </script>
+</body>
+</html>
