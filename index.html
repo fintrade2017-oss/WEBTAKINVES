@@ -21,6 +21,7 @@
             background-color: var(--black);
             color: var(--white);
             overflow-x: hidden;
+            padding-bottom: 60px; /* Espacio para la barra de idiomas fija abajo */
         }
 
         .navbar {
@@ -233,10 +234,44 @@
         }
 
         .language-selector {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 2000;
+        }
+
+        /* Botón del selector — más grande y visible */
+        #languageDropdown {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold)) !important;
+            color: var(--black) !important;
+            border: 2px solid var(--white) !important;
+            font-weight: bold;
+            padding: 8px 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        #languageDropdown:hover {
+            background: var(--white) !important;
+            color: var(--gold) !important;
+        }
+
+        /* Ajuste del navbar para que no solape con el selector */
+        .navbar {
+            padding-right: 160px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding-right: 10px;
+            }
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
+            #languageDropdown {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
         }
 
         .pillar-card {
@@ -451,19 +486,28 @@
     </style>
 </head>
 <body>
-    <!-- Language Selector -->
+    <!-- Language Selector (botón esquina superior derecha) -->
     <div class="language-selector">
         <div class="dropdown">
-            <button class="btn btn-outline-warning dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-warning dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-globe"></i> <span data-es="Idioma" data-en="Language" data-ru="Язык" data-zh="语言">Idioma</span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                <li><a class="dropdown-item" href="#" onclick="changeLanguage('es')">Español</a></li>
-                <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
-                <li><a class="dropdown-item" href="#" onclick="changeLanguage('ru')">Русский</a></li>
-                <li><a class="dropdown-item" href="#" onclick="changeLanguage('zh')">中文</a></li>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('es'); return false;">🇪🇸 Español</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('en'); return false;">🇬🇧 English</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('ru'); return false;">🇷🇺 Русский</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('zh'); return false;">🇨🇳 中文</a></li>
             </ul>
         </div>
+    </div>
+
+    <!-- Barra de idiomas fija abajo — siempre visible -->
+    <div style="position:fixed; bottom:0; left:0; right:0; background:#121212; border-top:2px solid #D4AF37; padding:8px 10px; z-index:2000; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; font-family:sans-serif;">
+        <span style="color:#D4AF37; font-weight:bold; margin-right:10px; align-self:center;" data-es="IDIOMA:" data-en="LANGUAGE:" data-ru="ЯЗЫК:" data-zh="语言:">IDIOMA:</span>
+        <a href="?lang=es" onclick="changeLanguage('es'); return false;" style="background:#D4AF37; color:#121212; padding:6px 14px; border-radius:20px; text-decoration:none; font-weight:bold; font-size:0.9rem;">🇪🇸 ES</a>
+        <a href="?lang=en" onclick="changeLanguage('en'); return false;" style="background:#1E1E1E; color:#D4AF37; padding:6px 14px; border-radius:20px; text-decoration:none; font-weight:bold; font-size:0.9rem; border:1px solid #D4AF37;">🇬🇧 EN</a>
+        <a href="?lang=ru" onclick="changeLanguage('ru'); return false;" style="background:#1E1E1E; color:#D4AF37; padding:6px 14px; border-radius:20px; text-decoration:none; font-weight:bold; font-size:0.9rem; border:1px solid #D4AF37;">🇷🇺 RU</a>
+        <a href="?lang=zh" onclick="changeLanguage('zh'); return false;" style="background:#1E1E1E; color:#D4AF37; padding:6px 14px; border-radius:20px; text-decoration:none; font-weight:bold; font-size:0.9rem; border:1px solid #D4AF37;">🇨🇳 ZH</a>
     </div>
 
     <!-- Navigation -->
@@ -524,7 +568,7 @@
             
             <div class="row">
                 <div class="col-lg-6">
-                    <img src="images/diversificacion.png" class="img-fluid rounded" alt="TAKYMA Diversificación" style="border: 2px solid var(--gold);">
+                    <img src="images/cultura.png" class="img-fluid rounded" alt="TAKYMA Cultura" style="border: 2px solid var(--gold);">
                 </div>
                 <div class="col-lg-6">
                     <h3 class="section-subtitle" data-es="Nuestra visión" data-en="Our vision" data-ru="Наше видение" data-zh="我们的愿景">Nuestra visión</h3>
@@ -553,7 +597,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://z-cdn-media.chatglm.cn/files/27aa378b-7782-4197-bc15-0189670a821b.png?auth_key=1864780138-5bd5350bd62146fe96f6332e93e7f973-0-825f38f1e0021b6f389e7be5a7e79f7f" class="img-fluid rounded" alt="TAKYMA Strategic Value">
+                    <img src="images/fidelizacion.png" class="img-fluid rounded" alt="TAKYMA Fidelización">
                 </div>
             </div>
         </div>
@@ -692,7 +736,7 @@
                             </div>
                         </div>
                         
-                        <a href="https://fullporcada.netlify.app/" target="_blank" class="project-link" data-es="Explorar Proyecto" data-en="Explore Project" data-ru="Исследовать проект" data-zh="探索项目">Explorar Proyecto</a>
+                        <a href="https://villazeroporcada.netlify.app/" target="_blank" class="project-link" data-es="Explorar Proyecto" data-en="Explore Project" data-ru="Исследовать проект" data-zh="探索项目">Explorar Proyecto</a>
                     </div>
                 </div>
             </div>
@@ -712,7 +756,7 @@
                     <p data-es="Al fusionar la visión estratégica de Takyma con la excelencia operativa de cadenas internacionales, aseguramos que cada activo no solo genere rendimiento, sino que sea revalorizado activamente para maximizar el patrimonio subyacente. Takyma es el instrumento estratégico para la gestión y crecimiento de nuestros activos." data-en="By merging Takyma's strategic vision with the operational excellence of international chains, we ensure that each asset not only generates performance, but is actively revalued to maximize the underlying heritage. Takyma is the strategic instrument for the management and growth of our assets." data-ru="Объединяя стратегическое видение Takyma с операционным превосходством международных сетей, мы обеспечиваем, чтобы каждый актив не только генерировал производительность, но и активно переоценивался для максимизации лежащего в основе наследия. Takyma - это стратегический инструмент для управления и роста наших активов." data-zh="通过将Takyma的战略愿景与国际连锁酒店的卓越运营相结合，我们确保每个资产不仅产生绩效，而且被积极重新评估以最大化基础遗产。Takyma是我们资产管理和增长的战略工具。">Al fusionar la visión estratégica de Takyma con la excelencia operativa de cadenas internacionales, aseguramos que cada activo no solo genere rendimiento, sino que sea revalorizado activamente para maximizar el patrimonio subyacente. Takyma es el instrumento estratégico para la gestión y crecimiento de nuestros activos.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://z-cdn-media.chatglm.cn/files/df763a2e-5190-47ed-a218-da1ff08f9e85.png?auth_key=1864780138-24c93d93690a4a81bb24a30865411dfd-0-6410ca5dd32ef8292fe599429ee79848" class="img-fluid rounded" alt="TAKYMA Mission">
+                    <img src="images/integridad.png" class="img-fluid rounded" alt="TAKYMA Integridad">
                 </div>
             </div>
 
@@ -827,7 +871,7 @@
     <!-- Copyright -->
     <div class="copyright">
         <div class="container">
-            <p class="mb-0" data-es="© 2025 TAKYMA INVESTMENT PIONEER. Todos los derechos reservados." data-en="© 2025 TAKYMA INVESTMENT PIONEER. All rights reserved." data-ru="© 2025 TAKYMA INVESTMENT PIONEER. Все права защищены." data-zh="© 2025 TAKYMA INVESTMENT PIONEER。保留所有权利。">© 2025 TAKYMA INVESTMENT PIONEER. Todos los derechos reservados.</p>
+            <p class="mb-0" data-es="© 2026 TAKYMA INVESTMENT PIONEER. Todos los derechos reservados." data-en="© 2026 TAKYMA INVESTMENT PIONEER. All rights reserved." data-ru="© 2025 TAKYMA INVESTMENT PIONEER. Все права защищены." data-zh="© 2025 TAKYMA INVESTMENT PIONEER。保留所有权利。">© 2025 TAKYMA INVESTMENT PIONEER. Todos los derechos reservados.</p>
         </div>
     </div>
 
