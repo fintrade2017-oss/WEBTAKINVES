@@ -483,9 +483,253 @@
                 gap: 20px;
             }
         }
+    
+        /* ============================================================
+            REPRODUCTOR DE MÚSICA DE FONDO — TAKYMA
+            Estilo dorado/negro acorde al sitio
+            ============================================================ */
+        .music-player {
+            position: fixed;
+            bottom: 60px;              /* por encima de la barra de idiomas */
+            left: 15px;
+            z-index: 1999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.95), rgba(18, 18, 18, 0.95));
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            padding: 8px 15px 8px 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.35s ease;
+            max-width: 320px;
+        }
+
+        .music-player:hover {
+            border-color: var(--dark-gold);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.35);
+        }
+
+        .music-btn {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--black);
+            border: 2px solid var(--white);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.8);
+        }
+
+        .music-btn.playing {
+            background: var(--white);
+            color: var(--gold);
+            animation: pulse-gold 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+            50%      { box-shadow: 0 0 0 8px rgba(212, 175, 55, 0); }
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .music-track {
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: bold;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 130px;
+            letter-spacing: 0.3px;
+        }
+
+        .music-status {
+            color: var(--white);
+            font-size: 0.65rem;
+            opacity: 0.7;
+            margin-top: 1px;
+        }
+
+        .music-waves {
+            display: flex;
+            gap: 2px;
+            height: 12px;
+            align-items: center;
+            margin-top: 2px;
+        }
+
+        .music-waves span {
+            width: 2px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+            opacity: 0.4;
+        }
+
+        .music-player.playing .music-waves span {
+            opacity: 1;
+            animation: wave 0.9s ease-in-out infinite;
+        }
+
+        .music-player.playing .music-waves span:nth-child(1) { animation-delay: 0s;   }
+        .music-player.playing .music-waves span:nth-child(2) { animation-delay: 0.15s; }
+        .music-player.playing .music-waves span:nth-child(3) { animation-delay: 0.3s;  }
+        .music-player.playing .music-waves span:nth-child(4) { animation-delay: 0.45s; }
+        .music-player.playing .music-waves span:nth-child(5) { animation-delay: 0.6s;  }
+
+        @keyframes wave {
+            0%, 100% { height: 4px;  }
+            50%      { height: 12px; }
+        }
+
+        .music-volume-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-left: 6px;
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .music-volume-wrap i {
+            color: var(--gold);
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .music-volume {
+            width: 65px;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            background: var(--gray);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .music-volume::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
+            transition: transform 0.2s;
+        }
+
+        .music-volume::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+        }
+
+        .music-volume::-moz-range-thumb {
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
+        }
+
+        .music-toast {
+            position: fixed;
+            bottom: 110px;
+            left: 15px;
+            z-index: 2000;
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+            pointer-events: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .music-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .music-player {
+                bottom: 65px;
+                left: 10px;
+                padding: 6px 10px 6px 6px;
+                gap: 6px;
+            }
+            .music-info { display: none; }
+            .music-volume-wrap { padding-left: 4px; }
+            .music-volume { width: 55px; }
+            .music-toast { bottom: 115px; left: 10px; }
+        }
+
     </style>
 </head>
 <body>
+    <!-- ============================================================
+         REPRODUCTOR DE MÚSICA DE FONDO — TAKYMA
+         Hilo musical ambiental (Wheel of Time)
+         ============================================================ -->
+    <div class="music-player" id="musicPlayer">
+        <audio id="bgMusic" loop preload="auto">
+            <source src="MUSIC/WHEEL OF TIME.MP3" type="audio/mpeg">
+            <source src="music/wheel of time.mp3" type="audio/mpeg">
+        </audio>
+        <button class="music-btn" id="musicToggle" type="button" aria-label="Reproducir música" title="Reproducir música">
+            <i class="fas fa-music"></i>
+        </button>
+        <div class="music-info">
+            <span class="music-track"
+                  data-es="Wheel of Time"
+                  data-en="Wheel of Time"
+                  data-ru="Wheel of Time"
+                  data-zh="Wheel of Time">Wheel of Time</span>
+            <div class="music-waves" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="music-volume-wrap">
+            <i class="fas fa-volume-down"></i>
+            <input type="range" class="music-volume" id="musicVolume"
+                   min="0" max="100" value="35" aria-label="Volumen de la música">
+        </div>
+    </div>
+
+    <!-- Toast de aviso (no intrusivo) -->
+    <div class="music-toast" id="musicToast"
+         data-es="Pulsa para activar la música"
+         data-en="Click to enable music"
+         data-ru="Нажмите, чтобы включить музыку"
+         data-zh="点击启用音乐">Pulsa para activar la música</div>
+
+
     <!-- Language Selector (botón esquina superior derecha) -->
     <div class="language-selector">
         <div class="dropdown">
@@ -1011,6 +1255,112 @@
             setupSmoothScroll();
             initLanguage();
         }
+    
+        // ============================================================
+        //  REPRODUCTOR DE MÚSICA DE FONDO
+        // ============================================================
+        (function () {
+            var audio       = document.getElementById('bgMusic');
+            var toggleBtn   = document.getElementById('musicToggle');
+            var player      = document.getElementById('musicPlayer');
+            var volumeCtrl  = document.getElementById('musicVolume');
+            var toast       = document.getElementById('musicToast');
+
+            if (!audio || !toggleBtn) return;
+
+            // Volumen inicial sincronizado con el slider
+            audio.volume = (volumeCtrl ? volumeCtrl.value / 100 : 0.35);
+
+            var toastTimer = null;
+            function showToast(msg) {
+                if (!toast) return;
+                if (msg) toast.innerHTML = msg;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function () {
+                    toast.classList.remove('show');
+                }, 3500);
+            }
+
+            function playMusic() {
+                var p = audio.play();
+                if (p && typeof p.then === 'function') {
+                    p.then(function () {
+                        toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                        toggleBtn.classList.add('playing');
+                        player.classList.add('playing');
+                        toggleBtn.setAttribute('aria-label', 'Pausar música');
+                        toggleBtn.setAttribute('title', 'Pausar música');
+                        if (toast) toast.classList.remove('show');
+                    }).catch(function (err) {
+                        // Autoplay bloqueado por el navegador
+                        showToast();
+                        if (typeof console !== 'undefined' && console.warn) {
+                            console.warn('Reproducción bloqueada por el navegador. El usuario debe pulsar el botón.', err);
+                        }
+                    });
+                } else {
+                    toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    toggleBtn.classList.add('playing');
+                    player.classList.add('playing');
+                }
+            }
+
+            function pauseMusic() {
+                audio.pause();
+                toggleBtn.innerHTML = '<i class="fas fa-music"></i>';
+                toggleBtn.classList.remove('playing');
+                player.classList.remove('playing');
+                toggleBtn.setAttribute('aria-label', 'Reproducir música');
+                toggleBtn.setAttribute('title', 'Reproducir música');
+            }
+
+            toggleBtn.addEventListener('click', function () {
+                if (audio.paused) {
+                    playMusic();
+                } else {
+                    pauseMusic();
+                }
+            });
+
+            if (volumeCtrl) {
+                volumeCtrl.addEventListener('input', function () {
+                    audio.volume = this.value / 100;
+                    // Cambiar icono según nivel
+                    var icon = volumeCtrl.parentNode.querySelector('i');
+                    if (icon) {
+                        if (audio.volume === 0)      icon.className = 'fas fa-volume-mute';
+                        else if (audio.volume < 0.5) icon.className = 'fas fa-volume-down';
+                        else                         icon.className = 'fas fa-volume-up';
+                    }
+                });
+            }
+
+            // Si por algún motivo no está en loop, reiniciar al terminar
+            audio.addEventListener('ended', function () {
+                audio.currentTime = 0;
+                audio.play().catch(function () {});
+            });
+
+            // Intento discreto de autoplay tras la primera interacción del usuario
+            // (los navegadores bloquean el autoplay sin interacción)
+            function tryAutoplayOnce() {
+                if (!audio.paused) return;
+                playMusic();
+                document.removeEventListener('click',    tryAutoplayOnce);
+                document.removeEventListener('touchend', tryAutoplayOnce);
+                document.removeEventListener('keydown',  tryAutoplayOnce);
+            }
+            // Aviso suave tras 2.5s si no ha sonado todavía
+            setTimeout(function () {
+                if (audio.paused) showToast();
+            }, 2500);
+            document.addEventListener('click',    tryAutoplayOnce);
+            document.addEventListener('touchend', tryAutoplayOnce);
+            document.addEventListener('keydown',  tryAutoplayOnce);
+        })();
+
+
     </script>
 </body>
 </html>
