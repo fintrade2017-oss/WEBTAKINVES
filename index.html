@@ -21,7 +21,7 @@
             background-color: var(--black);
             color: var(--white);
             overflow-x: hidden;
-            padding-bottom: 60px; /* Espacio para la barra de idiomas fija abajo */
+            padding-bottom: 60px;
         }
 
         .navbar {
@@ -240,7 +240,6 @@
             z-index: 2000;
         }
 
-        /* Botón del selector — más grande y visible */
         #languageDropdown {
             background: linear-gradient(135deg, var(--gold), var(--dark-gold)) !important;
             color: var(--black) !important;
@@ -255,7 +254,6 @@
             color: var(--gold) !important;
         }
 
-        /* Ajuste del navbar para que no solape con el selector */
         .navbar {
             padding-right: 160px;
         }
@@ -300,7 +298,6 @@
             margin-bottom: 10px;
         }
 
-        /* Nuevo estilo para la sección de proyecto destacado */
         .featured-project {
             background: linear-gradient(135deg, var(--light-black) 0%, var(--black) 100%);
             position: relative;
@@ -400,6 +397,25 @@
             color: var(--black);
         }
 
+        /* === NUEVO: Botón secundario Portal Reclutamiento === */
+        .project-link-secondary {
+            background: transparent !important;
+            border: 2px solid var(--gold);
+            color: var(--gold) !important;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+        }
+
+        .project-link-secondary:hover {
+            background: var(--gold) !important;
+            color: var(--black) !important;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .project-link-secondary i {
+            margin-right: 8px;
+        }
+
         .project-features {
             display: flex;
             justify-content: center;
@@ -462,35 +478,27 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
             .hero p {
                 font-size: 1.2rem;
             }
-            
             .section-title {
                 font-size: 2rem;
             }
-
             .project-card {
                 padding: 30px 20px;
             }
-
             .project-title {
                 font-size: 1.8rem;
             }
-
             .project-features {
                 gap: 20px;
             }
         }
-    
-        /* ============================================================
-            REPRODUCTOR DE MÚSICA DE FONDO — TAKYMA
-            Estilo dorado/negro acorde al sitio
-            ============================================================ */
+
+        /* === REPRODUCTOR DE MÚSICA === */
         .music-player {
             position: fixed;
-            bottom: 60px;              /* por encima de la barra de idiomas */
+            bottom: 60px;
             left: 15px;
             z-index: 1999;
             display: flex;
@@ -561,13 +569,6 @@
             overflow: hidden;
             max-width: 130px;
             letter-spacing: 0.3px;
-        }
-
-        .music-status {
-            color: var(--white);
-            font-size: 0.65rem;
-            opacity: 0.7;
-            margin-top: 1px;
         }
 
         .music-waves {
@@ -689,14 +690,10 @@
             .music-volume { width: 55px; }
             .music-toast { bottom: 115px; left: 10px; }
         }
-
     </style>
 </head>
 <body>
-    <!-- ============================================================
-         REPRODUCTOR DE MÚSICA DE FONDO — TAKYMA
-         Hilo musical ambiental (Wheel of Time)
-         ============================================================ -->
+    <!-- REPRODUCTOR DE MÚSICA -->
     <div class="music-player" id="musicPlayer">
         <audio id="bgMusic" loop preload="auto">
             <source src="MUSIC/WHEEL OF TIME.MP3" type="audio/mpeg">
@@ -706,31 +703,20 @@
             <i class="fas fa-music"></i>
         </button>
         <div class="music-info">
-            <span class="music-track"
-                  data-es="Wheel of Time"
-                  data-en="Wheel of Time"
-                  data-ru="Wheel of Time"
-                  data-zh="Wheel of Time">Wheel of Time</span>
+            <span class="music-track" data-es="Wheel of Time" data-en="Wheel of Time" data-ru="Wheel of Time" data-zh="Wheel of Time">Wheel of Time</span>
             <div class="music-waves" aria-hidden="true">
                 <span></span><span></span><span></span><span></span><span></span>
             </div>
         </div>
         <div class="music-volume-wrap">
             <i class="fas fa-volume-down"></i>
-            <input type="range" class="music-volume" id="musicVolume"
-                   min="0" max="100" value="35" aria-label="Volumen de la música">
+            <input type="range" class="music-volume" id="musicVolume" min="0" max="100" value="35" aria-label="Volumen de la música">
         </div>
     </div>
 
-    <!-- Toast de aviso (no intrusivo) -->
-    <div class="music-toast" id="musicToast"
-         data-es="Pulsa para activar la música"
-         data-en="Click to enable music"
-         data-ru="Нажмите, чтобы включить музыку"
-         data-zh="点击启用音乐">Pulsa para activar la música</div>
+    <div class="music-toast" id="musicToast" data-es="Pulsa para activar la música" data-en="Click to enable music" data-ru="Нажмите, чтобы включить музыку" data-zh="点击启用音乐">Pulsa para activar la música</div>
 
-
-    <!-- Language Selector (botón esquina superior derecha) -->
+    <!-- Language Selector -->
     <div class="language-selector">
         <div class="dropdown">
             <button class="btn btn-warning dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -745,7 +731,7 @@
         </div>
     </div>
 
-    <!-- Barra de idiomas fija abajo — siempre visible -->
+    <!-- Barra de idiomas fija abajo -->
     <div style="position:fixed; bottom:0; left:0; right:0; background:#121212; border-top:2px solid #D4AF37; padding:8px 10px; z-index:2000; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; font-family:sans-serif;">
         <span style="color:#D4AF37; font-weight:bold; margin-right:10px; align-self:center;" data-es="IDIOMA:" data-en="LANGUAGE:" data-ru="ЯЗЫК:" data-zh="语言:">IDIOMA:</span>
         <a href="?lang=es" onclick="changeLanguage('es'); return false;" style="background:#D4AF37; color:#121212; padding:6px 14px; border-radius:20px; text-decoration:none; font-weight:bold; font-size:0.9rem;">🇪🇸 ES</a>
@@ -766,30 +752,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home" data-es="Inicio" data-en="Home" data-ru="Главная" data-zh="首页">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about" data-es="Sobre nosotros" data-en="About us" data-ru="О нас" data-zh="关于我们">Sobre nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#strategic-value" data-es="Valor estratégico" data-en="Strategic value" data-ru="Стратегическая ценность" data-zh="战略价值">Valor estratégico</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#legal-structure" data-es="Estructura legal" data-en="Legal structure" data-ru="Юридическая структура" data-zh="法律结构">Estructura legal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#operational-architecture" data-es="Arquitectura operativa" data-en="Operational architecture" data-ru="Операционная архитектура" data-zh="运营架构">Arquitectura operativa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#featured-project" data-es="Proyecto destacado" data-en="Featured project" data-ru="Избранный проект" data-zh="特色项目">Proyecto destacado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#mission" data-es="Misión" data-en="Mission" data-ru="Миссия" data-zh="使命">Misión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact" data-es="Contacto" data-en="Contact" data-ru="Контакт" data-zh="联系">Contacto</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#home" data-es="Inicio" data-en="Home" data-ru="Главная" data-zh="首页">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" data-es="Sobre nosotros" data-en="About us" data-ru="О нас" data-zh="关于我们">Sobre nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#strategic-value" data-es="Valor estratégico" data-en="Strategic value" data-ru="Стратегическая ценность" data-zh="战略价值">Valor estratégico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#legal-structure" data-es="Estructura legal" data-en="Legal structure" data-ru="Юридическая структура" data-zh="法律结构">Estructura legal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#operational-architecture" data-es="Arquitectura operativa" data-en="Operational architecture" data-ru="Операционная архитектура" data-zh="运营架构">Arquitectura operativa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#featured-project" data-es="Proyecto destacado" data-en="Featured project" data-ru="Избранный проект" data-zh="特色项目">Proyecto destacado</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mission" data-es="Misión" data-en="Mission" data-ru="Миссия" data-zh="使命">Misión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-es="Contacto" data-en="Contact" data-ru="Контакт" data-zh="联系">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -809,7 +779,6 @@
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title" data-es="Sobre Takyma Investment Pioneer" data-en="About Takyma Investment Pioneer" data-ru="О Takyma Investment Pioneer" data-zh="关于 Takyma Investment Pioneer">Sobre Takyma Investment Pioneer</h2>
-            
             <div class="row">
                 <div class="col-lg-6">
                     <img src="images/cultura.png" class="img-fluid rounded" alt="TAKYMA Cultura" style="border: 2px solid var(--gold);">
@@ -817,7 +786,6 @@
                 <div class="col-lg-6">
                     <h3 class="section-subtitle" data-es="Nuestra visión" data-en="Our vision" data-ru="Наше видение" data-zh="我们的愿景">Nuestra visión</h3>
                     <p data-es="Takyma Investment Pioneer, con sede en Panamá, es una firma de inversión inmobiliaria especializada en el sector hotelero global. Fundada por promotores con una sólida trayectoria en finanzas, inmobiliario y servicios, Takyma supera el concepto de rentabilidad pasiva, enfocándose en la creación de valor mediante la revalorización de activos (subiendo hoteles de categoría) y el desarrollo de proyectos de impacto urbano (rehabilitación de barrios y ecoresorts)." data-en="Takyma Investment Pioneer, based in Panama, is a real estate investment firm specialized in the global hotel sector. Founded by promoters with a solid track record in finance, real estate and services, Takyma goes beyond the concept of passive profitability, focusing on value creation through asset revaluation (upgrading hotel categories) and the development of urban impact projects (neighborhood rehabilitation and ecoresorts)." data-ru="Takyma Investment Pioneer, базирующаяся в Панаме, является фирмой по инвестициям в недвижимость, специализирующейся на глобальном гостиничном секторе. Основанная промоутерами с солидным опытом в финансах, недвижимости и услугах, Takyma выходит за рамки концепции пассивной прибыльности, сосредотачиваясь на создании стоимости через переоценку активов (повышение категорий отелей) и разработку проектов с городским влиянием (реабилитация районов и эко-курорты)." data-zh="Takyma Investment Pioneer 总部位于巴拿马，是一家专门从事全球酒店业的房地产投资公司。由在金融、房地产和服务领域拥有坚实经验的发起人创立，Takyma 超越了被动盈利的概念，专注于通过资产重新评估（提升酒店类别）和城市影响项目开发（社区改造和生态度假村）来创造价值。">Takyma Investment Pioneer, con sede en Panamá, es una firma de inversión inmobiliaria especializada en el sector hotelero global. Fundada por promotores con una sólida trayectoria en finanzas, inmobiliario y servicios, Takyma supera el concepto de rentabilidad pasiva, enfocándose en la creación de valor mediante la revalorización de activos (subiendo hoteles de categoría) y el desarrollo de proyectos de impacto urbano (rehabilitación de barrios y ecoresorts).</p>
-                    
                     <p data-es="Nuestra estrategia garantiza la excelencia operativa al delegar la gestión a cadenas internacionales especializadas, asegurando el máximo retorno a través de la innovación y la experiencia de clase mundial." data-en="Our strategy guarantees operational excellence by delegating management to specialized international chains, ensuring maximum return through innovation and world-class experience." data-ru="Наша стратегия гарантирует операционное превосходство путем делегирования управления специализированным международным сетям, обеспечивая максимальную отдачу через инновации и мировой опыт." data-zh="我们的战略通过将管理委托给专业国际连锁酒店来确保卓越运营，通过创新和世界一流的经验确保最大回报。">Nuestra estrategia garantiza la excelencia operativa al delegar la gestión a cadenas internacionales especializadas, asegurando el máximo retorno a través de la innovación y la experiencia de clase mundial.</p>
                 </div>
             </div>
@@ -828,12 +796,9 @@
     <section id="strategic-value" class="section" style="background-color: var(--light-black);">
         <div class="container">
             <h2 class="section-title" data-es="Valor Estratégico para una Sociedad Patrimonial" data-en="Strategic Value for a Wealth Society" data-ru="Стратегическая ценность для общества благосостояния" data-zh="财富社会的战略价值">Valor Estratégico para una Sociedad Patrimonial</h2>
-            
             <div class="row">
                 <div class="col-lg-6">
                     <h3 class="section-subtitle" data-es="Enfoque a largo plazo" data-en="Long-term focus" data-ru="Долгосрочный фокус" data-zh="长期重点">Enfoque a largo plazo</h3>
-                    
-                    
                     <ul>
                         <li data-es="Visión a Largo Plazo: Confirmar que la estrategia de revalorización de activos es un plan de acumulación de riqueza generacional más que de rendimiento trimestral." data-en="Long-Term Vision: Confirm that the asset revaluation strategy is a generational wealth accumulation plan rather than quarterly performance." data-ru="Долгосрочное видение: Подтвердить, что стратегия переоценки активов - это план накопления богатства поколений, а не квартальная производительность." data-zh="长期愿景：确认资产重新评估策略是世代财富积累计划，而非季度绩效。">Visión a Largo Plazo: Confirmar que la estrategia de revalorización de activos es un plan de acumulación de riqueza generacional más que de rendimiento trimestral.</li>
                         <li data-es="Eficiencia y Solidez: Destacar la eficiencia de la estructura panameña y la seguridad de la gestión delegada." data-en="Efficiency and Solidity: Highlight the efficiency of the Panamanian structure and the security of delegated management." data-ru="Эффективность и солидность: Подчеркнуть эффективность панамской структуры и безопасность делегированного управления." data-zh="效率与稳健：突出巴拿马结构的效率和委托管理的安全性。">Eficiencia y Solidez: Destacar la eficiencia de la estructura panameña y la seguridad de la gestión delegada.</li>
@@ -851,9 +816,7 @@
     <section id="legal-structure" class="section">
         <div class="container">
             <h2 class="section-title" data-es="Pilares de la Arquitectura Legal y Patrimonial" data-en="Pillars of the Legal and Heritage Architecture" data-ru="Столпы юридической и наследственной архитектуры" data-zh="法律和遗产架构的支柱">Pilares de la Arquitectura Legal y Patrimonial</h2>
-            
             <p data-es="El vehículo de inversión Takyma Investment Pioneer ha sido diseñado bajo los siguientes pilares fundamentales para garantizar la solidez, la eficiencia y la seguridad de los activos a largo plazo:" data-en="The Takyma Investment Pioneer investment vehicle has been designed under the following fundamental pillars to guarantee the solidity, efficiency and security of assets in the long term:" data-ru="Инвестиционный инструмент Takyma Investment Pioneer был разработан на следующих фундаментальных столпах для обеспечения прочности, эффективности и безопасности активов в долгосрочной перспективе:" data-zh="Takyma Investment Pioneer 投资工具是根据以下基本支柱设计的，以确保资产的长期稳健、效率和安全性：">El vehículo de inversión Takyma Investment Pioneer ha sido diseñado bajo los siguientes pilares fundamentales para garantizar la solidez, la eficiencia y la seguridad de los activos a largo plazo:</p>
-            
             <div class="row mt-5">
                 <div class="col-md-4">
                     <div class="pillar-card">
@@ -867,7 +830,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-md-4">
                     <div class="pillar-card">
                         <h3 class="pillar-title" data-es="Pilar 2: Protección y Segregación de Activos" data-en="Pillar 2: Asset Protection and Segregation" data-ru="Столп 2: Защита и сегрегация активов" data-zh="支柱2：资产保护和隔离">Pilar 2: Protección y Segregación de Activos</h3>
@@ -880,7 +842,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-md-4">
                     <div class="pillar-card">
                         <h3 class="pillar-title" data-es="Pilar 3: Gobernanza y Continuidad" data-en="Pillar 3: Governance and Continuity" data-ru="Столп 3: Управление и непрерывность" data-zh="支柱3：治理和连续性">Pilar 3: Gobernanza y Continuidad</h3>
@@ -901,9 +862,7 @@
     <section id="operational-architecture" class="section" style="background-color: var(--light-black);">
         <div class="container">
             <h2 class="section-title" data-es="Arquitectura Operativa: Estrategia de Delegación y Control" data-en="Operational Architecture: Delegation and Control Strategy" data-ru="Операционная архитектура: Стратегия делегирования и контроля" data-zh="运营架构：委托与控制策略">Arquitectura Operativa: Estrategia de Delegación y Control</h2>
-            
             <p data-es="El modelo operativo de Takyma Investment Pioneer está diseñado para combinar la visión estratégica a largo plazo de la sociedad patrimonial con la máxima eficiencia operativa de líderes mundiales, garantizando la revalorización de los activos." data-en="The operational model of Takyma Investment Pioneer is designed to combine the long-term strategic vision of the heritage society with the maximum operational efficiency of world leaders, guaranteeing the revaluation of assets." data-ru="Операционная модель Takyma Investment Pioneer разработана для сочетания долгосрочного стратегического видения общества наследия с максимальной операционной эффективностью мировых лидеров, гарантируя переоценку активов." data-zh="Takyma Investment Pioneer 的运营模式旨在将遗产社会的长期战略愿景与世界领导者的最高运营效率相结合，确保资产的重新评估。">El modelo operativo de Takyma Investment Pioneer está diseñado para combinar la visión estratégica a largo plazo de la sociedad patrimonial con la máxima eficiencia operativa de líderes mundiales, garantizando la revalorización de los activos.</p>
-            
             <div class="row mt-5">
                 <div class="col-md-4">
                     <div class="pillar-card">
@@ -917,7 +876,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-md-4">
                     <div class="pillar-card">
                         <h3 class="pillar-title" data-es="Pilar 2: Control Estratégico y Financiero" data-en="Pillar 2: Strategic and Financial Control" data-ru="Столп 2: Стратегический и финансовый контроль" data-zh="支柱2：战略和财务控制">Pilar 2: Control Estratégico y Financiero</h3>
@@ -930,7 +888,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-md-4">
                     <div class="pillar-card">
                         <h3 class="pillar-title" data-es="Pilar 3: Implementación del Upgrading" data-en="Pillar 3: Implementation of Upgrading" data-ru="Столп 3: Реализация повышения" data-zh="支柱3：升级实施">Pilar 3: Implementación del Upgrading</h3>
@@ -946,7 +903,11 @@
         </div>
     </section>
 
-    <!-- Featured Project Section -->
+    <!-- ============================================================
+         FEATURED PROJECT SECTION — MODIFICADO
+         1. Enlace existente cambiado a: https://porcada-sactuary-web.netlify.app/
+         2. NUEVO botón debajo: Portal de Reclutamiento → https://seleccionpersonalpor.netlify.app/
+         ============================================================ -->
     <section id="featured-project" class="section featured-project">
         <div class="container project-content">
             <h2 class="section-title" data-es="Proyecto Destacado" data-en="Featured Project" data-ru="Избранный проект" data-zh="特色项目">Proyecto Destacado</h2>
@@ -980,7 +941,13 @@
                             </div>
                         </div>
                         
-                        <a href="https://marketingporcada.netlify.app/" target="_blank" class="project-link" data-es="Explorar Proyecto" data-en="Explore Project" data-ru="Исследовать проект" data-zh="探索项目">Explorar Proyecto</a>
+                        <!-- ENLACE 1: Cambiado a porcada-sactuary-web.netlify.app -->
+                        <a href="https://porcada-sactuary-web.netlify.app/" target="_blank" class="project-link" data-es="Explorar Proyecto" data-en="Explore Project" data-ru="Исследовать проект" data-zh="探索项目">Explorar Proyecto</a>
+                        
+                        <!-- ENLACE 2 (NUEVO): Portal de Reclutamiento Takyma -->
+                        <a href="https://seleccionpersonalpor.netlify.app/" target="_blank" class="project-link project-link-secondary" data-es="Portal de Reclutamiento" data-en="Recruitment Portal" data-ru="Портал рекрутинга" data-zh="招聘门户">
+                            <i class="fas fa-users"></i> Portal de Reclutamiento
+                        </a>
                     </div>
                 </div>
             </div>
@@ -991,12 +958,10 @@
     <section id="mission" class="section">
         <div class="container">
             <h2 class="section-title" data-es="Conclusión y Declaración de Misión" data-en="Conclusion and Mission Statement" data-ru="Заключение и заявление о миссии" data-zh="结论和使命宣言">Conclusión y Declaración de Misión</h2>
-            
             <div class="row">
                 <div class="col-lg-6">
                     <h3 class="section-subtitle" data-es="La Solidez del Patrimonio" data-en="The Solidity of Heritage" data-ru="Прочность наследия" data-zh="遗产的稳固性">La Solidez del Patrimonio</h3>
                     <p data-es="Takyma Investment Pioneer representa la culminación de la experiencia de sus promotores en un vehículo de inversión diseñado para la expansión de capital a largo plazo y la protección patrimonial. Hemos establecido una estructura robusta con sede en Panamá, basada en la segregación de activos y una gobernanza clara, lo cual nos permite abordar proyectos de alta ambición (desde la rehabilitación urbana hasta el upgrading hotelero global)." data-en="Takyma Investment Pioneer represents the culmination of the experience of its promoters in an investment vehicle designed for long-term capital expansion and heritage protection. We have established a robust structure based in Panama, based on asset segregation and clear governance, which allows us to address high-ambition projects (from urban rehabilitation to global hotel upgrading)." data-ru="Takyma Investment Pioneer представляет собой кульминацию опыта его промоутеров в инвестиционном средстве, разработанном для долгосрочного расширения капитала и защиты наследия. Мы установили прочную структуру, базирующуюся в Панаме, основанную на сегрегации активов и ясном управлении, что позволяет нам решать проекты с высокими амбициями (от городской реабилитации до глобального повышения отелей)." data-zh="Takyma Investment Pioneer 代表其发起人在为长期资本扩张和遗产保护设计的投资工具中的经验结晶。我们在巴拿马建立了一个基于资产分离和明确治理的稳健结构，这使我们能够处理高雄心的项目（从城市改造到全球酒店升级）。">Takyma Investment Pioneer representa la culminación de la experiencia de sus promotores en un vehículo de inversión diseñado para la expansión de capital a largo plazo y la protección patrimonial. Hemos establecido una estructura robusta con sede en Panamá, basada en la segregación de activos y una gobernanza clara, lo cual nos permite abordar proyectos de alta ambición (desde la rehabilitación urbana hasta el upgrading hotelero global).</p>
-                    
                     <p data-es="Al fusionar la visión estratégica de Takyma con la excelencia operativa de cadenas internacionales, aseguramos que cada activo no solo genere rendimiento, sino que sea revalorizado activamente para maximizar el patrimonio subyacente. Takyma es el instrumento estratégico para la gestión y crecimiento de nuestros activos." data-en="By merging Takyma's strategic vision with the operational excellence of international chains, we ensure that each asset not only generates performance, but is actively revalued to maximize the underlying heritage. Takyma is the strategic instrument for the management and growth of our assets." data-ru="Объединяя стратегическое видение Takyma с операционным превосходством международных сетей, мы обеспечиваем, чтобы каждый актив не только генерировал производительность, но и активно переоценивался для максимизации лежащего в основе наследия. Takyma - это стратегический инструмент для управления и роста наших активов." data-zh="通过将Takyma的战略愿景与国际连锁酒店的卓越运营相结合，我们确保每个资产不仅产生绩效，而且被积极重新评估以最大化基础遗产。Takyma是我们资产管理和增长的战略工具。">Al fusionar la visión estratégica de Takyma con la excelencia operativa de cadenas internacionales, aseguramos que cada activo no solo genere rendimiento, sino que sea revalorizado activamente para maximizar el patrimonio subyacente. Takyma es el instrumento estratégico para la gestión y crecimiento de nuestros activos.</p>
                 </div>
                 <div class="col-lg-6">
@@ -1022,7 +987,6 @@
     <section id="contact" class="section" style="background-color: var(--light-black);">
         <div class="container">
             <h2 class="section-title" data-es="Contáctenos" data-en="Contact us" data-ru="Свяжитесь с нами" data-zh="联系我们">Contáctenos</h2>
-            
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-form">
@@ -1121,88 +1085,34 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // ============================================================
-        //  SISTEMA DE TRADUCCIÓN ROBUSTO - 4 IDIOMAS
-        //  Español (es) | English (en) | Русский (ru) | 中文 (zh)
-        // ============================================================
+        var LANGUAGE_NAMES = { 'es': 'Español', 'en': 'English', 'ru': 'Русский', 'zh': '中文' };
+        var LANGUAGE_FLAGS = { 'es': '🇪🇸', 'en': '🇬🇧', 'ru': '🇷🇺', 'zh': '🇨🇳' };
 
-        // Mapa de nombres legibles para el botón del selector
-        var LANGUAGE_NAMES = {
-            'es': 'Español',
-            'en': 'English',
-            'ru': 'Русский',
-            'zh': '中文'
-        };
-
-        // Banderas (emoji) para mostrar junto al nombre del idioma
-        var LANGUAGE_FLAGS = {
-            'es': '🇪🇸',
-            'en': '🇬🇧',
-            'ru': '🇷🇺',
-            'zh': '🇨🇳'
-        };
-
-        /**
-         * Aplica el idioma seleccionado a TODOS los elementos traducibles.
-         * Usa un try/catch por cada elemento para que un fallo aislado no
-         * rompa el resto de traducciones.
-         */
         function changeLanguage(lang) {
-            // Validar idioma; por defecto, español
             if (!LANGUAGE_NAMES[lang]) lang = 'es';
-
-            // Guardar preferencia (con try/catch por si localStorage está bloqueado)
-            try {
-                localStorage.setItem('selectedLanguage', lang);
-            } catch (e) {
-                // localStorage no disponible (file:// o modo privado) — no es fatal
-            }
-
-            // Recorrer todos los elementos que tienen al menos un atributo data-{lang}
+            try { localStorage.setItem('selectedLanguage', lang); } catch (e) {}
             var elements = document.querySelectorAll('[data-es], [data-en], [data-ru], [data-zh]');
             for (var i = 0; i < elements.length; i++) {
                 var element = elements[i];
                 try {
-                    // El botón del selector se gestiona aparte
                     if (element.id === 'languageDropdown') continue;
-
                     var translation = element.getAttribute('data-' + lang);
                     if (!translation) continue;
-
-                    // Inputs y textareas usan placeholder
                     var tag = element.tagName.toUpperCase();
                     if (tag === 'INPUT' || tag === 'TEXTAREA') {
                         element.setAttribute('placeholder', translation);
                     } else {
-                        // innerHTML para conservar <br> y otros tags inline
                         element.innerHTML = translation;
                     }
-                } catch (err) {
-                    // Silenciar errores individuales para no romper el resto
-                    if (typeof console !== 'undefined' && console.warn) {
-                        console.warn('No se pudo traducir un elemento:', element, err);
-                    }
-                }
+                } catch (err) {}
             }
-
-            // Actualizar el atributo lang del <html> (accesibilidad y SEO)
             document.documentElement.lang = lang;
-
-            // Actualizar el botón del selector de idioma
             var dropdownButton = document.getElementById('languageDropdown');
             if (dropdownButton) {
-                dropdownButton.innerHTML = '<i class="fas fa-globe"></i> ' +
-                    LANGUAGE_FLAGS[lang] + ' ' + LANGUAGE_NAMES[lang];
+                dropdownButton.innerHTML = '<i class="fas fa-globe"></i> ' + LANGUAGE_FLAGS[lang] + ' ' + LANGUAGE_NAMES[lang];
             }
-
-            // Actualizar el texto "Idioma" del botón también via data-*
-            var labelSpan = dropdownButton ? dropdownButton.querySelector('[data-es]') : null;
-            // (Ya se tradujo en el bucle anterior, este paso es redundante pero seguro)
         }
 
-        // ============================================================
-        //  SCROLL SUAVE para los enlaces de navegación
-        // ============================================================
         function setupSmoothScroll() {
             var anchors = document.querySelectorAll('a[href^="#"]');
             for (var i = 0; i < anchors.length; i++) {
@@ -1218,70 +1128,44 @@
             }
         }
 
-        // ============================================================
-        //  INICIALIZACIÓN — Aplicar el idioma lo antes posible
-        // ============================================================
         function initLanguage() {
-            var savedLang = 'es'; // por defecto español
+            var savedLang = 'es';
             try {
                 var stored = localStorage.getItem('selectedLanguage');
-                if (stored && LANGUAGE_NAMES[stored]) {
-                    savedLang = stored;
-                }
-            } catch (e) {
-                // localStorage no disponible
-            }
-            // También soportar ?lang=XX en la URL (útil para compartir enlaces)
+                if (stored && LANGUAGE_NAMES[stored]) savedLang = stored;
+            } catch (e) {}
             try {
                 var urlParams = new URLSearchParams(window.location.search);
                 var urlLang = urlParams.get('lang');
-                if (urlLang && LANGUAGE_NAMES[urlLang]) {
-                    savedLang = urlLang;
-                }
-            } catch (e) {
-                // URLSearchParams no disponible
-            }
+                if (urlLang && LANGUAGE_NAMES[urlLang]) savedLang = urlLang;
+            } catch (e) {}
             changeLanguage(savedLang);
         }
 
-        // Ejecutar inmediatamente si el DOM ya está listo
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function () {
-                setupSmoothScroll();
-                initLanguage();
-            });
+            document.addEventListener('DOMContentLoaded', function () { setupSmoothScroll(); initLanguage(); });
         } else {
-            // DOMContentLoaded ya pasó (script cargado tarde)
             setupSmoothScroll();
             initLanguage();
         }
-    
-        // ============================================================
-        //  REPRODUCTOR DE MÚSICA DE FONDO
-        // ============================================================
+
+        // REPRODUCTOR DE MÚSICA
         (function () {
-            var audio       = document.getElementById('bgMusic');
-            var toggleBtn   = document.getElementById('musicToggle');
-            var player      = document.getElementById('musicPlayer');
-            var volumeCtrl  = document.getElementById('musicVolume');
-            var toast       = document.getElementById('musicToast');
-
+            var audio = document.getElementById('bgMusic');
+            var toggleBtn = document.getElementById('musicToggle');
+            var player = document.getElementById('musicPlayer');
+            var volumeCtrl = document.getElementById('musicVolume');
+            var toast = document.getElementById('musicToast');
             if (!audio || !toggleBtn) return;
-
-            // Volumen inicial sincronizado con el slider
             audio.volume = (volumeCtrl ? volumeCtrl.value / 100 : 0.35);
-
             var toastTimer = null;
             function showToast(msg) {
                 if (!toast) return;
                 if (msg) toast.innerHTML = msg;
                 toast.classList.add('show');
                 clearTimeout(toastTimer);
-                toastTimer = setTimeout(function () {
-                    toast.classList.remove('show');
-                }, 3500);
+                toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3500);
             }
-
             function playMusic() {
                 var p = audio.play();
                 if (p && typeof p.then === 'function') {
@@ -1292,20 +1176,13 @@
                         toggleBtn.setAttribute('aria-label', 'Pausar música');
                         toggleBtn.setAttribute('title', 'Pausar música');
                         if (toast) toast.classList.remove('show');
-                    }).catch(function (err) {
-                        // Autoplay bloqueado por el navegador
-                        showToast();
-                        if (typeof console !== 'undefined' && console.warn) {
-                            console.warn('Reproducción bloqueada por el navegador. El usuario debe pulsar el botón.', err);
-                        }
-                    });
+                    }).catch(function (err) { showToast(); });
                 } else {
                     toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
                     toggleBtn.classList.add('playing');
                     player.classList.add('playing');
                 }
             }
-
             function pauseMusic() {
                 audio.pause();
                 toggleBtn.innerHTML = '<i class="fas fa-music"></i>';
@@ -1314,53 +1191,34 @@
                 toggleBtn.setAttribute('aria-label', 'Reproducir música');
                 toggleBtn.setAttribute('title', 'Reproducir música');
             }
-
             toggleBtn.addEventListener('click', function () {
-                if (audio.paused) {
-                    playMusic();
-                } else {
-                    pauseMusic();
-                }
+                if (audio.paused) { playMusic(); } else { pauseMusic(); }
             });
-
             if (volumeCtrl) {
                 volumeCtrl.addEventListener('input', function () {
                     audio.volume = this.value / 100;
-                    // Cambiar icono según nivel
                     var icon = volumeCtrl.parentNode.querySelector('i');
                     if (icon) {
-                        if (audio.volume === 0)      icon.className = 'fas fa-volume-mute';
+                        if (audio.volume === 0) icon.className = 'fas fa-volume-mute';
                         else if (audio.volume < 0.5) icon.className = 'fas fa-volume-down';
-                        else                         icon.className = 'fas fa-volume-up';
+                        else icon.className = 'fas fa-volume-up';
                     }
                 });
             }
-
-            // Si por algún motivo no está en loop, reiniciar al terminar
-            audio.addEventListener('ended', function () {
-                audio.currentTime = 0;
-                audio.play().catch(function () {});
-            });
-
-            // Intento discreto de autoplay tras la primera interacción del usuario
-            // (los navegadores bloquean el autoplay sin interacción)
+            audio.addEventListener('ended', function () { audio.currentTime = 0; audio.play().catch(function () {}); });
             function tryAutoplayOnce() {
                 if (!audio.paused) return;
                 playMusic();
-                document.removeEventListener('click',    tryAutoplayOnce);
+                document.removeEventListener('click', tryAutoplayOnce);
                 document.removeEventListener('touchend', tryAutoplayOnce);
-                document.removeEventListener('keydown',  tryAutoplayOnce);
+                document.removeEventListener('keydown', tryAutoplayOnce);
             }
-            // Aviso suave tras 2.5s si no ha sonado todavía
-            setTimeout(function () {
-                if (audio.paused) showToast();
-            }, 2500);
-            document.addEventListener('click',    tryAutoplayOnce);
+            setTimeout(function () { if (audio.paused) showToast(); }, 2500);
+            document.addEventListener('click', tryAutoplayOnce);
             document.addEventListener('touchend', tryAutoplayOnce);
-            document.addEventListener('keydown',  tryAutoplayOnce);
+            document.addEventListener('keydown', tryAutoplayOnce);
         })();
-
-
     </script>
 </body>
 </html>
+
